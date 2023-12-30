@@ -34,7 +34,7 @@ defmodule Bundlex.Toolchain.Common.Unix do
       |> Enum.map(fn {source, object} ->
         """
         #{compile} -Wall -D_POSIX_C_SOURCE=199309L -Wextra -c -O2 -g #{compiler_flags} \
-        -o #{path(object)} #{includes} #{path(source)} -lm
+        -o #{path(object)} #{includes} #{path(source)}
         """
       end)
 
@@ -96,7 +96,7 @@ defmodule Bundlex.Toolchain.Common.Unix do
     [
       """
       #{link} -o #{path(output <> extension)} \
-      #{deps} #{paths(objects)} #{libs(native)} #{linker_flags}
+      #{deps} #{paths(objects)} #{libs(native)} #{linker_flags} -lm
       """
     ]
   end
