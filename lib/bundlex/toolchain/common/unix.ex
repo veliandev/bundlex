@@ -33,8 +33,8 @@ defmodule Bundlex.Toolchain.Common.Unix do
       |> Enum.zip(objects)
       |> Enum.map(fn {source, object} ->
         """
-        #{compile} -Wall -D_POSIX_C_SOURCE=199309L -Wextra -c -O2 -g #{compiler_flags} \
-        -o #{path(object)} #{includes} #{path(source)} -lm
+        #{compile} -Wall -D_POSIX_SOURCE -Wextra -c -O2 -g #{compiler_flags} \
+        -o #{path(object)} #{includes} #{path(source)}
         """
       end)
 
