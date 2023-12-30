@@ -96,7 +96,7 @@ defmodule Bundlex.Toolchain.Common.Unix do
     [
       """
       #{link} -o #{path(output <> extension)} \
-      #{deps} #{paths(objects)} #{libs(native)} #{linker_flags} -lm -lglfw
+      #{deps} #{paths(objects)} #{libs(native)} #{linker_flags} -lm -lGL
       """
     ]
   end
